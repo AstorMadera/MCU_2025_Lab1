@@ -43,7 +43,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-int a = 0;
+int i = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -96,16 +96,32 @@ int main(void)
   {
 /*
  //Task 1
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
-	  HAL_Delay(50);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+	HAL_Delay(50);
 
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
-	  HAL_Delay(50);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+	HAL_Delay(50);
 */
-	  GPIOA->BSRR |= 1;
-	  HAL_Delay(200);
-	  GPIOA->BSRR |= (1<<16);
-	  HAL_Delay(200);
+
+/*
+//Task 2
+
+	GPIOA->BSRR |= 1;
+	HAL_Delay(200);
+	GPIOA->BSRR |= (1<<16);
+	HAL_Delay(200);
+*/
+
+
+//Task3
+	GPIOA->BSRR = 1 << i;
+	HAL_Delay(100);
+	GPIOA->BSRR = 1 << (16 + i);
+
+	i++;
+
+	if (i == 5) i = 0;
+
 
 
     /* USER CODE END WHILE */
