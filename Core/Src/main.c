@@ -44,6 +44,7 @@
 
 /* USER CODE BEGIN PV */
 int i = 0;
+uint8_t dir = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -112,7 +113,7 @@ int main(void)
 	HAL_Delay(200);
 */
 
-
+/*
 //Task3
 	GPIOA->BSRR = 1 << i;
 	HAL_Delay(100);
@@ -121,7 +122,29 @@ int main(void)
 	i++;
 
 	if (i == 5) i = 0;
+*/
+//Task4
+	GPIOA->BSRR = 1 << i;
+	HAL_Delay(100);
+	GPIOA->BSRR = 1 << (16 + i);
 
+	if(dir == 0){
+
+		i++;
+
+		if (i == 5){
+			dir = 1;
+		}
+
+	}else{
+
+		i--;
+
+		if (i == 0){
+			dir = 0;
+		}
+
+	}
 
 
     /* USER CODE END WHILE */
