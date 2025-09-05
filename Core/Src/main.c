@@ -94,12 +94,19 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
+/*
+ //Task 1
 	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
 	  HAL_Delay(50);
 
 	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
 	  HAL_Delay(50);
+*/
+	  GPIOA->BSRR |= 1;
+	  HAL_Delay(200);
+	  GPIOA->BSRR |= (1<<16);
+	  HAL_Delay(200);
+
 
     /* USER CODE END WHILE */
 
